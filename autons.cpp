@@ -59,14 +59,14 @@ void progskills(){
   // back away and drive to other side of field
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
   chassis.drive_distance(-5);
-  //IntakeBottom.stop();
+  IntakeBottom.stop();
   IntakeTop.stop();
   Scraper1.set(false);
   Scraper2.set(false);
   chassis.set_turn_exit_conditions(1, 300, 1000);
   chassis.turn_to_angle(135);
   chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(-18, 135); //pev 24
+  chassis.drive_distance(-17.5, 135); //pev 24
   chassis.set_turn_exit_conditions(1, 300, 750);
   chassis.left_swing_to_angle(90);
   chassis.set_drive_exit_conditions(1.5, 300, 5000);
@@ -103,7 +103,7 @@ void progskills(){
   wait(1500, msec);
   chassis.drive_distance(-2, -90);
   wait(1700, msec);
-  chassis.turn_to_angle(-90);
+  //chassis.turn_to_angle(-90);
 
   //move accross field, line up with third loader, get blocks
   Scraper1.set(false);
@@ -120,7 +120,7 @@ void progskills(){
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   IntakeBottom.spin(reverse);
-  chassis.drive_distance(16);
+  chassis.drive_distance(15.5);
   wait(1500, msec);
   chassis.turn_to_angle(-90);
 
@@ -136,13 +136,15 @@ void progskills(){
   chassis.drive_distance(-17, -45);
   chassis.set_turn_exit_conditions(1, 300, 750);
   chassis.left_swing_to_angle(-90);
-  chassis.drive_distance(-70);
+  chassis.set_drive_exit_conditions(1.5, 300, 2000);
+  chassis.drive_distance(-70, -89);
 
   //line up with long goal and score
   chassis.left_swing_to_angle(-180);
-  chassis.drive_distance(-6, -180);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000);
+  chassis.drive_distance(-8, -180);
   chassis.turn_to_angle(-270);
-  chassis.drive_distance(-16, -270);
+  chassis.drive_distance(-18, -270);
   IntakeBottom.spin(reverse);
   IntakeTop.spin(reverse);
   wait(1800, msec);
@@ -159,7 +161,7 @@ void progskills(){
   chassis.set_drive_exit_conditions(1.5, 300, 1000);
   chassis.drive_distance(-29.25, -270);
   IntakeTop.spin(reverse);
-  wait(1750, msec);
+  wait(1900, msec);
 
   //park
   Scraper1.set(false);
@@ -167,8 +169,8 @@ void progskills(){
   chassis.drive_distance(20, -270);
   chassis.turn_to_angle(45);
   chassis.drive_distance(17);
-  chassis.left_swing_to_angle(10);
-  chassis.drive_distance(8, 10);
+  chassis.right_swing_to_angle(10);
+  chassis.drive_distance(10, 10);
   Scraper1.set(true);
   Scraper2.set(true);
   IntakeTop.spin(reverse);
