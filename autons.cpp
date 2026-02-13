@@ -52,7 +52,7 @@ void progskills(){
   chassis.set_drive_exit_conditions(1.5, 300, 2000);
   wait(200, msec);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
-  chassis.drive_distance(12, 90);
+  chassis.drive_distance(11.25, 90);
   //chassis.turn_to_angle(85);
   wait(1750, msec);
 
@@ -66,19 +66,19 @@ void progskills(){
   chassis.set_turn_exit_conditions(1, 300, 1000);
   chassis.turn_to_angle(135);
   chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(-17.5, 135); //pev 24
-  chassis.set_turn_exit_conditions(1, 300, 750);
+  chassis.drive_distance(-9, 135); 
+  chassis.set_turn_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(90);
   chassis.set_drive_exit_conditions(1.5, 300, 5000);
-  chassis.drive_distance(-68, 90);
+  chassis.drive_distance(-68, 85);
 
   // line up with long goal and score
-  chassis.set_turn_exit_conditions(1, 300, 1000);
+  chassis.set_turn_exit_conditions(1, 300, 500);
   //chassis.turn_to_angle(0);
   //chassis.right_swing_to_angle(-45);
   chassis.left_swing_to_angle(0);
   chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(-10, 0);
+  chassis.drive_distance(-9, 0);//prev -10
   chassis.turn_to_angle(-90);
   chassis.set_drive_exit_conditions(1.5, 300, 1000);
   chassis.drive_distance(-18, -90);
@@ -114,14 +114,14 @@ void progskills(){
   chassis.set_turn_exit_conditions(1, 300, 1000);
   chassis.turn_to_angle(-180);
   chassis.set_drive_exit_conditions(1.5, 300, 3500);
-  chassis.drive_distance(97, -180);
+  chassis.drive_distance(97, -185);
   chassis.turn_to_angle(-90);
   Scraper1.set(true);
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   IntakeBottom.spin(reverse);
   chassis.drive_distance(15.5);
-  wait(1500, msec);
+  wait(1400, msec);
   chassis.turn_to_angle(-90);
 
   // back away and move to other side of field
@@ -133,11 +133,11 @@ void progskills(){
   Scraper2.set(false);
   chassis.turn_to_angle(-45);
   chassis.set_drive_exit_conditions(1.5, 300, 1000);
-  chassis.drive_distance(-17, -45);
+  chassis.drive_distance(-11, -45);
   chassis.set_turn_exit_conditions(1, 300, 750);
   chassis.left_swing_to_angle(-90);
   chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(-70, -89);
+  chassis.drive_distance(-70, -85);
 
   //line up with long goal and score
   chassis.left_swing_to_angle(-180);
@@ -147,7 +147,7 @@ void progskills(){
   chassis.drive_distance(-18, -270);
   IntakeBottom.spin(reverse);
   IntakeTop.spin(reverse);
-  wait(1800, msec);
+  wait(1900, msec);
   IntakeTop.stop();
 
   //get fourth loader and score
@@ -170,12 +170,13 @@ void progskills(){
   chassis.turn_to_angle(45);
   chassis.drive_distance(17);
   chassis.right_swing_to_angle(10);
-  chassis.drive_distance(10, 10);
+  chassis.drive_distance(9, 10);
   Scraper1.set(true);
   Scraper2.set(true);
   IntakeTop.spin(reverse);
   IntakeBottom.spin(reverse);
-  chassis.drive_distance(33, 10);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000);
+  chassis.drive_distance(33, 5);
   Scraper1.set(false);
   Scraper2.set(false);
 
