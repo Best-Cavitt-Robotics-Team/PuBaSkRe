@@ -16,9 +16,9 @@ void default_constants(){
   chassis.set_swing_constants(12, .3, .001, 2, 15);
 
   // Each exit condition set is in the form of (settle_error, settle_time, timeout).
-  chassis.set_drive_exit_conditions(1.5, 300, 5000);
-  chassis.set_turn_exit_conditions(1, 300, 3000);
-  chassis.set_swing_exit_conditions(1, 300, 3000);
+  chassis.set_drive_exit_conditions(1.5, 300, 2000);
+  chassis.set_turn_exit_conditions(1, 300, 1000);
+  chassis.set_swing_exit_conditions(1, 300, 500);
 }
 
 /**
@@ -42,50 +42,68 @@ void progskills(){
   descore.set(true);
 
   // drive towards loader, turn, put scraper down, drive into loader
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //2000
   chassis.drive_distance(34, 0);
+  wait(50, msec);
   chassis.set_turn_exit_conditions(1, 300, 1000);
   chassis.turn_to_angle(90);
+  wait(50, msec);
   Scraper1.set(true);
   Scraper2.set(true);
   IntakeBottom.spin(reverse);
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
   wait(200, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   chassis.drive_distance(11.25, 90);
+  wait(50, msec);
   //chassis.turn_to_angle(85);
   wait(1750, msec);
 
   // back away and drive to other side of field
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
   chassis.drive_distance(-5);
+  wait(50, msec);
   IntakeBottom.stop();
   IntakeTop.stop();
   Scraper1.set(false);
   Scraper2.set(false);
   chassis.set_turn_exit_conditions(1, 300, 1000);
   chassis.turn_to_angle(135);
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(-9, 135); 
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
+  chassis.drive_distance(-12, 135);  //pev -9 mirror later
+  wait(50, msec);
   chassis.set_turn_exit_conditions(1, 300, 500);
+  chassis.set_swing_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(90);
-  chassis.set_drive_exit_conditions(1.5, 300, 5000);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 2500); //5000
   chassis.drive_distance(-68, 85);
+  wait(50, msec);
 
   // line up with long goal and score
   chassis.set_turn_exit_conditions(1, 300, 500);
   //chassis.turn_to_angle(0);
   //chassis.right_swing_to_angle(-45);
+  chassis.set_swing_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(0);
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
   chassis.drive_distance(-9, 0);//prev -10
+  wait(50, msec);
   chassis.turn_to_angle(-90);
-  chassis.set_drive_exit_conditions(1.5, 300, 1000);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //1000
   chassis.drive_distance(-18, -90);
+  wait(50, msec);
   IntakeBottom.spin(reverse);
   IntakeTop.spin(reverse);
   chassis.turn_to_angle(-90);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //1000
   chassis.drive_distance(-2, -90);
+  wait(50, msec);
   wait(1750, msec);
   
   //drive into second loader, get blocks, score on long goal
@@ -94,14 +112,20 @@ void progskills(){
   Scraper2.set(true);
   wait(200, msec);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
-  chassis.set_drive_exit_conditions(1.5, 300, 1500);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
   chassis.drive_distance(28.75, -90);
+  wait(50, msec);
   wait(1500, msec);
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
   chassis.drive_distance(-31, -90);
+  wait(50, msec);
   IntakeTop.spin(reverse);
   wait(1500, msec);
+  chassis.turn_to_angle(-90);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //1500
   chassis.drive_distance(-2, -90);
+  wait(50, msec);
   wait(1700, msec);
   //chassis.turn_to_angle(-90);
 
@@ -109,44 +133,66 @@ void progskills(){
   Scraper1.set(false);
   Scraper2.set(false);
   IntakeTop.stop(); 
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
-  chassis.drive_distance(18, -90);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //2000
+  chassis.drive_distance(16, -90); //prev 17
+  wait(50, msec);
   chassis.set_turn_exit_conditions(1, 300, 1000);
-  chassis.turn_to_angle(-180);
+  chassis.turn_to_angle(-180);//prev 185
+  wait(50, msec);
   chassis.set_drive_exit_conditions(1.5, 300, 3500);
-  chassis.drive_distance(97, -185);
+  chassis.drive_distance(97, -180);//prev 185
+  wait(50, msec);
   chassis.turn_to_angle(-90);
+  wait(50, msec);
   Scraper1.set(true);
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   IntakeBottom.spin(reverse);
-  chassis.drive_distance(15.5);
-  wait(1400, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //3500
+  chassis.drive_distance(15.5, -90);
+  wait(50, msec);
+  wait(1000, msec);//prev 1400
   chassis.turn_to_angle(-90);
+  wait(50, msec);
 
   // back away and move to other side of field
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  chassis.drive_distance(-5);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //3500
+  chassis.drive_distance(-5, -90);
+  wait(50, msec);
   IntakeTop.stop();
   IntakeBottom.stop();
   Scraper1.set(false);
   Scraper2.set(false);
   chassis.turn_to_angle(-45);
-  chassis.set_drive_exit_conditions(1.5, 300, 1000);
-  chassis.drive_distance(-11, -45);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //1000
+  chassis.drive_distance(-12, -45); //pev -11
+  wait(50, msec);
   chassis.set_turn_exit_conditions(1, 300, 750);
+  chassis.set_swing_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(-90);
-  chassis.set_drive_exit_conditions(1.5, 300, 2000);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 2500); //2000
   chassis.drive_distance(-70, -85);
+  wait(50, msec);
 
   //line up with long goal and score
+  chassis.set_swing_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(-180);
-  chassis.set_drive_exit_conditions(1.5, 300, 1000);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //1000
   chassis.drive_distance(-8, -180);
+  wait(50, msec);
   chassis.turn_to_angle(-270);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //1000
   chassis.drive_distance(-18, -270);
+  wait(50, msec);
   IntakeBottom.spin(reverse);
   IntakeTop.spin(reverse);
+  chassis.turn_to_angle(90);
+  wait(50, msec);
   wait(1900, msec);
   IntakeTop.stop();
 
@@ -154,29 +200,40 @@ void progskills(){
   Scraper1.set(true);
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
-  chassis.set_drive_exit_conditions(1.5, 300, 1500);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
   chassis.drive_distance(28.75, -270);
+  wait(50, msec);
   wait(1500, msec);
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  chassis.set_drive_exit_conditions(1.5, 300, 1000);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1000
   chassis.drive_distance(-29.25, -270);
+  wait(50, msec);
   IntakeTop.spin(reverse);
-  wait(1900, msec);
+  chassis.turn_to_angle(90);
+  wait(2100, msec);//prev 1900
 
   //park
   Scraper1.set(false);
   Scraper2.set(false);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //1000
   chassis.drive_distance(20, -270);
+  wait(50, msec);
   chassis.turn_to_angle(45);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //1000
   chassis.drive_distance(17);
+  wait(50, msec);
   chassis.right_swing_to_angle(10);
+  wait(50, msec);
+  chassis.set_drive_exit_conditions(1.5, 300, 500); //1000
   chassis.drive_distance(9, 10);
+  wait(50, msec);
   Scraper1.set(true);
   Scraper2.set(true);
   IntakeTop.spin(reverse);
   IntakeBottom.spin(reverse);
-  chassis.set_drive_exit_conditions(1.5, 300, 1000);
-  chassis.drive_distance(33, 5);
+  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1000
+  chassis.drive_distance(37, 5);//prev 40
   Scraper1.set(false);
   Scraper2.set(false);
 
