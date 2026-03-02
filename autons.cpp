@@ -1,3 +1,4 @@
+
 #include "vex.h"
 
 /**
@@ -54,7 +55,7 @@ void progskills(){
   wait(200, msec);
   chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
-  chassis.drive_distance(11.25, 90);
+  chassis.drive_distance(10.25, 90); //prev 11.25
   wait(50, msec);
   //chassis.turn_to_angle(85);
   wait(1750, msec);
@@ -90,7 +91,7 @@ void progskills(){
   chassis.left_swing_to_angle(0);
   wait(50, msec);
   chassis.set_drive_exit_conditions(1.5, 300, 500); //2000
-  chassis.drive_distance(-9, 0);//prev -10
+  chassis.drive_distance(-7, 0);//prev -9
   wait(50, msec);
   chassis.turn_to_angle(-90);
   wait(50, msec);
@@ -113,12 +114,12 @@ void progskills(){
   wait(200, msec);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
-  chassis.drive_distance(28.75, -90);
-  wait(50, msec);
+  chassis.drive_distance(28.75, -88);//prev -90 degeress
+  // wait(50, msec);
   wait(1500, msec);
-  chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
-  chassis.drive_distance(-31, -90);
+  chassis.set_drive_constants(5, 1.5, 0, 10, 0);
+  chassis.set_drive_exit_conditions(1.5, 300, 1000); //prev 1500
+  chassis.drive_distance(-31, -91);//prev -90 degrees
   wait(50, msec);
   IntakeTop.spin(reverse);
   wait(1500, msec);
@@ -140,18 +141,20 @@ void progskills(){
   chassis.turn_to_angle(-180);//prev 185
   wait(50, msec);
   chassis.set_drive_exit_conditions(1.5, 300, 3500);
-  chassis.drive_distance(97, -180);//prev 185
+  chassis.drive_distance(96, -180);//prev 185 and 97
   wait(50, msec);
-  chassis.turn_to_angle(-90);
-  wait(50, msec);
+  chassis.turn_to_angle(-90);//prev -90  
   Scraper1.set(true);
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   IntakeBottom.spin(reverse);
   chassis.set_drive_exit_conditions(1.5, 300, 1000); //3500
-  chassis.drive_distance(15.5, -90);
+  chassis.drive_distance(-30, -90);
   wait(50, msec);
-  wait(1000, msec);//prev 1400
+  chassis.turn_to_angle(-88);
+  wait(50, msec);
+  chassis.drive_distance(25, -88);//prev 30.75
+  wait(1500, msec);//prev 1400
   chassis.turn_to_angle(-90);
   wait(50, msec);
 
@@ -181,8 +184,8 @@ void progskills(){
   chassis.set_swing_exit_conditions(1, 300, 500);
   chassis.left_swing_to_angle(-180);
   wait(50, msec);
-  chassis.set_drive_exit_conditions(1.5, 300, 500); //1000
-  chassis.drive_distance(-8, -180);
+  chassis.set_drive_exit_conditions(1.5, 300, 750); //prev 500 before 1000
+  chassis.drive_distance(-10, -180);//prev -8
   wait(50, msec);
   chassis.turn_to_angle(-270);
   wait(50, msec);
@@ -201,12 +204,14 @@ void progskills(){
   Scraper2.set(true);
   chassis.set_drive_constants(4, 1.5, 0, 10, 0);
   chassis.set_drive_exit_conditions(1.5, 300, 1500); //1500
-  chassis.drive_distance(28.75, -270);
+  chassis.drive_distance(28.75);//prev had angle of -270
   wait(50, msec);
   wait(1500, msec);
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
   chassis.set_drive_exit_conditions(1.5, 300, 1500); //1000
-  chassis.drive_distance(-29.25, -270);
+  chassis.turn_to_angle(87);
+  wait(50, msec);
+  chassis.drive_distance(-29.25, 87);//prev had angle of -270
   wait(50, msec);
   IntakeTop.spin(reverse);
   chassis.turn_to_angle(90);
@@ -233,7 +238,7 @@ void progskills(){
   IntakeTop.spin(reverse);
   IntakeBottom.spin(reverse);
   chassis.set_drive_exit_conditions(1.5, 300, 1500); //1000
-  chassis.drive_distance(37, 5);//prev 40
+  chassis.drive_distance(43, 5);//prev 40
   Scraper1.set(false);
   Scraper2.set(false);
 
